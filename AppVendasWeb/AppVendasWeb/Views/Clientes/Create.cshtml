@@ -24,12 +24,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" type="email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DataNascimento" class="control-label"></label>
-                <input asp-for="DataNascimento" class="form-control" />
+                <input asp-for="DataNascimento" type="date" class=" form-control" />
                 <span asp-validation-for="DataNascimento" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -39,16 +39,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="DateCadastro" class="control-label"></label>
-                <input asp-for="DateCadastro" class="form-control" />
+                <input asp-for="DateCadastro" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") readonly />
                 <span asp-validation-for="DateCadastro" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            <div class="form-group form-check form-switch">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="CadastroAtivo" /> @Html.DisplayNameFor(model => model.CadastroAtivo)
+                    <input class="form-check-input" role="switch" asp-for="CadastroAtivo" /> @Html.DisplayNameFor(model => model.CadastroAtivo)
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a> asp-action="Index" class="btn btn-outline-light">Voltar</a>
             </div>
         </form>
     </div>
@@ -59,5 +60,7 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
