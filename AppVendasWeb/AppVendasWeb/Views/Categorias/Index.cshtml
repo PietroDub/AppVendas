@@ -3,33 +3,64 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
+<h1 class="display-5 text-light my-5">Categoria</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-outline-light d-inline-flex align-items-center">
+        <svg class="me-2" bootstrap-icon="PlusLg" width="20" height="20" aria-label="Adicionar"></svg>
+        Adicionar
+    </a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoriaNome)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoriaNome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoriaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoriaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoriaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table table-dark table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoriaNome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoriaId)
+                </th>
+
+
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoriaNome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoriaId)
+                    </td>
+                    <td class="text-end">
+                    <td>
+                        <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.CategoriaId">
+                            <svg bootstrap-icon="PencilFill" width="16" height="16" aria-label="Alarms"></svg>
+                            Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.CategoriaId">
+                            <svg bootstrap-icon="CardList" width="16" height="16" aria-label="Alarms"></svg>
+                            Detalhes
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.CategoriaId">
+                            <svg bootstrap-icon="Trash2" width="16" height="16" aria-label="Alarms"></svg>
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

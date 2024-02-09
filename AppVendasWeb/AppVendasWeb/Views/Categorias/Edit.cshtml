@@ -19,6 +19,11 @@
                 <span asp-validation-for="CategoriaNome" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="CategoriaId" class="control-label"></label>
+                <input asp-for="CategoriaId" class="form-control" disabled />
+                <span asp-validation-for="CategoriaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -26,9 +31,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-success">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

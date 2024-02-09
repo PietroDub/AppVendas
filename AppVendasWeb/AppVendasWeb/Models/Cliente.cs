@@ -11,7 +11,7 @@ namespace AppVendasWeb.Models
         public string ClienteNome { get; set; }
 
         [Required(ErrorMessage = "O campo CPF é obrigatório")]
-        [StringLength(100, ErrorMessage = "O campo Nome deve ter no máximo 11 caracteres")]
+        [StringLength(14, ErrorMessage = "O campo Nome deve ter no máximo 11 caracteres")]
         public string CPF { get; set; }
 
         [Display(Name = "E-mail")]
@@ -23,6 +23,8 @@ namespace AppVendasWeb.Models
         [Required(ErrorMessage = "O campo Data de Nascimento é obrigatório")]
 
         public DateOnly DataNascimento { get; set; }
+
+        [StringLength(15)]
         public string? Telefone { get; set; }
 
         [Display(Name = "Data de Cadastro")]

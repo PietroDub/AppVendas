@@ -45,8 +45,8 @@ namespace AppVendasWeb.Migrations
 
                     b.Property<string>("CPF")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
 
                     b.Property<bool>("CadastroAtivo")
                         .HasColumnType("bit");
@@ -68,7 +68,8 @@ namespace AppVendasWeb.Migrations
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Telefone")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
                     b.HasKey("ClienteId");
 
