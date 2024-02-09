@@ -19,11 +19,24 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
                     <ul class="navbar-nav flex-grow-1">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-info">
+                                <li><a class="dropdown-item active" href="#">Não sei</a></li>
+                                <li><a class="dropdown-item" href="#">Nem adianta</a></li>
+                                <li><a class="dropdown-item" href="#">quem sabe no ultimo</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="https://youtu.be/pSDFwJcDJC0?si=FD6WZH-YmJVGuXZe">Pode clicar vai 😑 </a></li>
+                            </ul>
+                        </div>
                         <li class="nav-item">
-                            <a class="" asp-area="" asp-controller="Home" asp-action="Index">
-                                Home
-                                <svg bootstrap-icon="House" width="16" height="16" aria-label="House"></svg>
 
+                            <a class="" asp-area="" asp-controller="Home" asp-action="Index">
+
+                                <svg bootstrap-icon="House" width="16" height="16" aria-label="House"></svg>
+                                Home
                             </a>
                         </li>
 
@@ -34,13 +47,32 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="" asp-area="" asp-controller="Categorias" asp-action="Index">Categorias</a>
+                            <a class="" asp-area="" asp-controller="Categorias" asp-action="Index">
+                                <svg bootstrap-icon="File" width="16" height="16" aria-label="File"></svg>
+
+                                Categorias
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="" asp-area="" asp-controller="Produtos" asp-action="Index">Produtos</a>
+                            <a class="" asp-area="" asp-controller="Produtos" asp-action="Index">
+                                <svg bootstrap-icon="Cart" width="16" height="16" aria-label="File"></svg>
+
+                                Produtos
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="" asp-area="" asp-controller="ItensDaVenda" asp-action="Index">ItensDaVenda</a>
+                            <a class="" asp-area="" asp-controller="Vendas" asp-action="Index">
+                                <svg bootstrap-icon="Bag" width="16" height="16" aria-label="File"></svg>
+
+                                Vendas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="" asp-area="" asp-controller="ItensDaVendas" asp-action="Index">
+                                <svg bootstrap-icon="Bag" width="16" height="16" aria-label="File"></svg>
+
+                                ItensDaVenda
+                            </a>
                         </li>
                     </ul>
                 </div>

@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="display-5 text-light my-5">Produtos</h1>
+<h1 class="display-5 text-light my-5 fw-bold">Produtos</h1>
+
 
 <p>
     <a asp-action="Create" class="btn btn-outline-light d-inline-flex align-items-center">
@@ -12,6 +13,29 @@
         Adicionar
     </a>
 </p>
+<h1 class="text-center" style="color:aliceblue">Veja nossos Produtos!</h1>
+
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://th.bing.com/th/id/OIP.h406SJGU9vA_TF0hBfuEDgAAAA?rs=1&pid=ImgDetMain" class="d-block w-30 mx-auto" alt="chocolate">
+        </div>
+        <div class="carousel-item">
+            <img src="https://i1.wp.com/coolicias.ao/wp-content/uploads/2020/04/Receita-de-Lasanha-de-Carne-Moida-F%C3%A1cil-e-R%C3%A1pida.jpg" class="d-block w-30 mx-auto" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://th.bing.com/th/id/OIP.NvZPgrDEnsJ7U63E4w9wyAHaEK?rs=1&pid=ImgDetMain" class="d-block w-20 mx-auto" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
 <div class="table-responsive">
     <table class="table table-borderless table-striped table-hover ">
         <thead>
