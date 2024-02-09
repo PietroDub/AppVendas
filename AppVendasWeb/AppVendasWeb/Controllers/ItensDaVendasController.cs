@@ -10,23 +10,23 @@ using AppVendasWeb.Models;
 
 namespace AppVendasWeb.Controllers
 {
-    public class ItensDaVendaController : Controller
+    public class ItensDaVendasController : Controller
     {
         private readonly AppVendasContext _context;
 
-        public ItensDaVendaController(AppVendasContext context)
+        public ItensDaVendasController(AppVendasContext context)
         {
             _context = context;
         }
 
-        // GET: ItensDaVenda
+        // GET: ItensDaVendas
         public async Task<IActionResult> Index()
         {
-            var appVendasContext = _context.ItensDaVenda.Include(i => i.Produto);
+            var appVendasContext = _context.ItensDaVenda.Include(i => i.Produto).Include(i => i.Venda);
             return View(await appVendasContext.ToListAsync());
         }
 
-        // GET: ItensDaVenda/Details/5
+        // GET: ItensDaVendas/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -36,7 +36,8 @@ namespace AppVendasWeb.Controllers
 
             var itemDaVenda = await _context.ItensDaVenda
                 .Include(i => i.Produto)
-                .FirstOrDefaultAsync(m => m.ItemDaVendaID == id);
+                .Include(i => i.Venda)
+                .FirstOrDefaultAsync(m => m.ItemDaVendaId == id);
             if (itemDaVenda == null)
             {
                 return NotFound();
@@ -45,32 +46,34 @@ namespace AppVendasWeb.Controllers
             return View(itemDaVenda);
         }
 
-        // GET: ItensDaVenda/Create
+        // GET: ItensDaVendas/Create
         public IActionResult Create()
         {
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "ProdutoId", "Descricao");
+            ViewData["VendaId"] = new SelectList(_context.Vendas, "VendaId", "VendaId");
             return View();
         }
 
-        // POST: ItensDaVenda/Create
+        // POST: ItensDaVendas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ItemDaVendaID,ProdutoId,Quantidade,Valor")] ItemDaVenda itemDaVenda)
+        public async Task<IActionResult> Create([Bind("ItemDaVendaId,ProdutoId,VendaId,Quantidade,Valor")] ItemDaVenda itemDaVenda)
         {
             if (ModelState.IsValid)
             {
-                itemDaVenda.ItemDaVendaID = Guid.NewGuid();
+                itemDaVenda.ItemDaVendaId = Guid.NewGuid();
                 _context.Add(itemDaVenda);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "ProdutoId", "Descricao", itemDaVenda.ProdutoId);
+            ViewData["VendaId"] = new SelectList(_context.Vendas, "VendaId", "VendaId", itemDaVenda.VendaId);
             return View(itemDaVenda);
         }
 
-        // GET: ItensDaVenda/Edit/5
+        // GET: ItensDaVendas/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -84,17 +87,18 @@ namespace AppVendasWeb.Controllers
                 return NotFound();
             }
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "ProdutoId", "Descricao", itemDaVenda.ProdutoId);
+            ViewData["VendaId"] = new SelectList(_context.Vendas, "VendaId", "VendaId", itemDaVenda.VendaId);
             return View(itemDaVenda);
         }
 
-        // POST: ItensDaVenda/Edit/5
+        // POST: ItensDaVendas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ItemDaVendaID,ProdutoId,Quantidade,Valor")] ItemDaVenda itemDaVenda)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ItemDaVendaId,ProdutoId,VendaId,Quantidade,Valor")] ItemDaVenda itemDaVenda)
         {
-            if (id != itemDaVenda.ItemDaVendaID)
+            if (id != itemDaVenda.ItemDaVendaId)
             {
                 return NotFound();
             }
@@ -108,7 +112,7 @@ namespace AppVendasWeb.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ItemDaVendaExists(itemDaVenda.ItemDaVendaID))
+                    if (!ItemDaVendaExists(itemDaVenda.ItemDaVendaId))
                     {
                         return NotFound();
                     }
@@ -120,10 +124,11 @@ namespace AppVendasWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ProdutoId"] = new SelectList(_context.Produtos, "ProdutoId", "Descricao", itemDaVenda.ProdutoId);
+            ViewData["VendaId"] = new SelectList(_context.Vendas, "VendaId", "VendaId", itemDaVenda.VendaId);
             return View(itemDaVenda);
         }
 
-        // GET: ItensDaVenda/Delete/5
+        // GET: ItensDaVendas/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -133,7 +138,8 @@ namespace AppVendasWeb.Controllers
 
             var itemDaVenda = await _context.ItensDaVenda
                 .Include(i => i.Produto)
-                .FirstOrDefaultAsync(m => m.ItemDaVendaID == id);
+                .Include(i => i.Venda)
+                .FirstOrDefaultAsync(m => m.ItemDaVendaId == id);
             if (itemDaVenda == null)
             {
                 return NotFound();
@@ -142,7 +148,7 @@ namespace AppVendasWeb.Controllers
             return View(itemDaVenda);
         }
 
-        // POST: ItensDaVenda/Delete/5
+        // POST: ItensDaVendas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
@@ -159,7 +165,7 @@ namespace AppVendasWeb.Controllers
 
         private bool ItemDaVendaExists(Guid id)
         {
-            return _context.ItensDaVenda.Any(e => e.ItemDaVendaID == id);
+            return _context.ItensDaVenda.Any(e => e.ItemDaVendaId == id);
         }
     }
 }

@@ -4,7 +4,6 @@
     ViewData["Title"] = "Index";
 }
 
-
 <h1 class="display-5 text-light my-5">Cliente</h1>
 
 <p>
@@ -14,17 +13,20 @@
     </a>
 </p>
 <div class="table-responsive">
-    <table class="table table-dark table-striped table-hover ">
+    <table class="table table-borderless table-striped table-hover ">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.ItemDaVendaID)
+                    @Html.DisplayNameFor(model => model.ItemDaVendaId)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.ProdutoId)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Produto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendaId)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Venda)
@@ -35,7 +37,6 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Valor)
                 </th>
-
                 <th></th>
                 <th></th>
                 <th></th>
@@ -48,13 +49,16 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ItemDaVendaID)
+                        @Html.DisplayFor(modelItem => item.ItemDaVendaId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ProdutoId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Produto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendaId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Venda)
@@ -65,22 +69,21 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Valor)
                     </td>
-
                     <td class="text-end">
                     <td>
-                        <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.ItemDaVendaID">
+                        <a class="btn btn-outline-info" asp-action="Edit" asp-route-id="@item.ItemDaVendaId">
                             <svg bootstrap-icon="PencilFill" width="16" height="16" aria-label="Alarms"></svg>
                             Editar
                         </a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.ItemDaVendaID">
+                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.ItemDaVendaId">
                             <svg bootstrap-icon="CardList" width="16" height="16" aria-label="Alarms"></svg>
                             Detalhes
                         </a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.ItemDaVendaID">
+                        <a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.ItemDaVendaId">
                             <svg bootstrap-icon="Trash2" width="16" height="16" aria-label="Alarms"></svg>
                             Deletar
                         </a>

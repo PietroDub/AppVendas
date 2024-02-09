@@ -8,23 +8,30 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/AppVendasWeb.styles.css" asp-append-version="true" />
 </head>
-<body class="bg-dark bg-opacity-60 bg-gradient text-light">
+<body style="background:linear-gradient( 110.8deg, rgba(55,255,226,1) 1.4%, rgba(0,25,167,1) 96.4% )">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark text-ligth border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark  text-ligth border-bottom box-shadow mb-3" style="background:rgb(64, 162, 227)">
             <div class="container-fluid ">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">AppVendasWeb</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="" asp-area="" asp-controller="Home" asp-action="Index">
+                                Home
+                                <svg bootstrap-icon="House" width="16" height="16" aria-label="House"></svg>
+
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a>
+                            <a class="" asp-area="" asp-controller="Clientes" asp-action="Index">
+                                <svg bootstrap-icon="EmojiNeutral" width="16" height="16" aria-label="EmojiNeutral"></svg>
+                                Clientes
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="" asp-area="" asp-controller="Categorias" asp-action="Index">Categorias</a>
@@ -46,7 +53,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-light bg-dark text-center">
+    <footer class="border-top footer text-light text-center" style="background:rgb(23, 107, 135)">
         <div class="container">
             &copy; 2024 - AppVendasWeb -<a class="text-light" <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de privacidade</a>
         </div>

@@ -34,8 +34,7 @@ body {
             color: aqua;
         }
 
-        tituloPagina{
-            text-align: center;
-            margin-top: 20px;
-            
-        }
+tituloPagina {
+    text-align: center;
+    margin-top: 20px;
+}
