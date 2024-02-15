@@ -29,9 +29,6 @@
                     @Html.DisplayNameFor(model => model.NotaFiscal)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.ClienteID)
-                </th>
-                <th>
                     @Html.DisplayNameFor(model => model.Cliente)
                 </th>
 
@@ -59,14 +56,11 @@
                         @Html.DisplayFor(modelItem => item.NotaFiscal)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ClienteID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Cliente)
+                        @Html.DisplayFor(modelItem => item.Cliente.ClienteNome)
                     </td>
 
                     <td class="text-end">
-                        <a class="btn btn-outline-info" asp-controller="itensDaVenda" asp-action="Create" asp-route-id="@item.VendaId">
+                        <a class="btn btn-outline-info" asp-controller="ItensDaVendas" asp-action="Index" asp-route-id="@item.VendaId">
                             <svg class="me-2" bootstrap-icon="PlusLg" width="20" height="20" aria-label="Adicionar"></svg>
                             Novo Item
                         </a>

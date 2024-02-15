@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="display-5 text-light my-5 fw-bold">Cliente</h1>
+<h1 class="display-5 text-light my-5 fw-bold">Itens Da Venda</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-outline-light d-inline-flex align-items-center">
@@ -16,15 +16,11 @@
     <table class="table table-borderless table-striped table-hover ">
         <thead>
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ItemDaVendaId)
-                </th>
+
                 <th>
                     @Html.DisplayNameFor(model => model.Produto)
                 </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.VendaId)
-                </th>
+
                 <th>
                     @Html.DisplayNameFor(model => model.Venda)
                 </th>
@@ -46,17 +42,13 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ItemDaVendaId)
+                        @Html.DisplayFor(modelItem => item.Produto.Descricao)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Produto)
+                        @Html.DisplayFor(modelItem => item.Venda.NotaFiscal)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.VendaId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Venda)
-                    </td>
+
+
                     <td>
                         @Html.DisplayFor(modelItem => item.Quantidade)
                     </td>
