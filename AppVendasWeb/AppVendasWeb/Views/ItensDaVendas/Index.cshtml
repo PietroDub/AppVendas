@@ -6,8 +6,9 @@
 
 <h1 class="display-5 text-light my-5 fw-bold">Itens Da Venda</h1>
 
+
 <p>
-    <a asp-action="Create" class="btn btn-outline-light d-inline-flex align-items-center">
+    <a asp-action="Create" asp-route-id="@ViewData["VendaId"] class=" btn btn-outline-light d-inline-flex align-items-center">
         <svg class="me-2" bootstrap-icon="PlusLg" width="20" height="20" aria-label="Adicionar"></svg>
         Adicionar
     </a>
@@ -18,7 +19,7 @@
             <tr>
 
                 <th>
-                    @Html.DisplayNameFor(model => model.Produto)
+                    @Html.DisplayNameFor(model => model.Prodto)
                 </th>
 
                 <th>
@@ -42,7 +43,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Produto.Descricao)
+                        @Html.DisplayFor(modelItem => item.Prodto.Descricao)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Venda.NotaFiscal)

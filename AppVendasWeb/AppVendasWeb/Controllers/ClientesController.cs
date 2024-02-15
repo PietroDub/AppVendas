@@ -25,6 +25,15 @@ namespace AppVendasWeb.Controllers
             return View(await _context.Cliente.ToListAsync());
         }
 
+        public async Task<IActionResult> Search(string searchString)
+        {
+            if (string.IsNullOrEmpty(searchString))
+            {
+                return View("Index", await _context.Cliente.ToListAsync());
+            }
+            return View("Index", await _context.Cliente.Where(c => c.ClienteNome.Contains(searchString)).ToListAsync());
+        }
+
         // GET: Clientes/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {

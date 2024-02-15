@@ -6,7 +6,16 @@
 
 <h1 class="display-5 text-light my-5 fw-bold">Produtos</h1>
 
-
+<form method="post" asp-action="Search">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="searchString"
+               placeholder="Pesquisar por nome" aria-label="Pesquisar por nome"
+               aria-describedby="button-addon2">
+        <button class="btn btn-outline-light" type="submit" id="button-addon2">
+            <svg bootstrap-icon="Search" width="16" height="16" aria-label="Pesquisar"></svg>
+        </button>
+    </div>
+</form>
 <p>
     <a asp-action="Create" class="btn btn-outline-light d-inline-flex align-items-center">
         <svg class="me-2" bootstrap-icon="PlusLg" width="20" height="20" aria-label="Adicionar"></svg>

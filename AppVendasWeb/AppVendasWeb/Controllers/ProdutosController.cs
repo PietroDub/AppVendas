@@ -25,6 +25,14 @@ namespace AppVendasWeb.Controllers
             var appVendasContext = _context.Produtos.Include(p => p.Categoria);
             return View(await appVendasContext.ToListAsync());
         }
+        public async Task<IActionResult> Search(string searchString)
+        {
+            if (string.IsNullOrEmpty(searchString))
+            {
+                return View("Index", await _context.Produtos.ToListAsync());
+            }
+            return View("Index", await _context.Produtos.Where(c => c.Descricao.Contains(searchString)).ToListAsync());
+        }
 
         // GET: Produtos/Details/5
         public async Task<IActionResult> Details(Guid? id)
